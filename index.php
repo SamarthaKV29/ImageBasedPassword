@@ -16,7 +16,7 @@
 				require_once("dbconnect.php");
 				$dbh = getDBC();
 				if(isset($dbh)){
-				    echo " Connected to DB successfully";
+				    echo " <script>console.log('Connected to DB successfully');</script>";
 				}
 				?>
                 <div class="row">
