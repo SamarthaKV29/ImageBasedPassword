@@ -20,8 +20,8 @@
 				}
 				?>
                 <div class="row">
-                    <div class="col-md-2">Menu</div>
-                    <div class="col-md-4">
+                    <div class="col">Menu</div>
+                    <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel panel-heading">
                                 <h3>Welcome to IBP</h3>
@@ -40,7 +40,7 @@
                         </div>
                     
                     </div>
-                    <div class="col-md-2">Login</div>            
+                    <div class="col">Login</div>            
                 
                 
                 
