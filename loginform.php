@@ -1,4 +1,16 @@
+<html>
+<head>
+<script>
+$(document).ready = () =>{
+    console.log("Ready");
+}
+
+</script>
+</head>
+<body>
+
 <?php 
+
 echo '<div class="col-md-3">';
 if(!isset($loggedIn)){
     echo '
@@ -33,3 +45,6 @@ else{
 echo ' </div> ';
 
 ?>
+</body>
+
+</html>
