@@ -19,7 +19,11 @@
 
 
 
+<?php 
 
+echo "THis browser is ".get_browser()
+
+?>
 
 
 
