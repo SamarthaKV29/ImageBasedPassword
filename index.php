@@ -1,58 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<title></title>
 </head>
 <body>
+	<div class="container">
+		<div class="row">
+            <div class="col"></div>
+			<div class="col-md-12 col-lg-8 col-sm-8">
+				<?php 
+				$loggedIn = null;
 
-
-
-<div class="container">
-<div class="wrapper ">
-
-
-<div class="row">
-
-
-
-
-
-
-<div class="col">
-
-
-
-<?php 
-$loggedIn = null;
-
-require_once("dbconnect.php");
-$dbh = getDBC();
-if(isset($dbh)){
-    echo " Connected to DB successfully";
-}
-?>
-
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-</div>
+				require_once("dbconnect.php");
+				$dbh = getDBC();
+				if(isset($dbh)){
+				    echo " Connected to DB successfully";
+				}
+				?>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>            
+                
+                
+                
+                
+                
+                </div>
 
 
 
@@ -67,20 +43,13 @@ if(isset($dbh)){
 
 
 
-
-
-
-
-
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+			</div>
+            <div class="col"></div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script> <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script>
 </body>
-
-
 </html>
