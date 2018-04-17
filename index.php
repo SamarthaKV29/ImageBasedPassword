@@ -22,9 +22,10 @@
                 <div class="row">
                     <div class="col-md-3">
                         <nav>
-                            <ul class="navbar nav">
-                                <li><a href=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
-                            
+                            <ul class="nav nav-pills nav-stacked span2">
+                                <li><a href=""><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                                <li><a href=""><i class="glyphicon glyphicon-home"></i> Register</a></li>
+                                <li><a href=""><i class="glyphicon glyphicon-home"></i> Details</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -48,7 +49,7 @@
                     
                     </div>
                     <?php require("loginform.php"); ?>           
-                    
+
                 
                 
                 
