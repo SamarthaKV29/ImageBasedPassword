@@ -18,6 +18,7 @@ function getDBC(){
     // $dbname="d52j9hr7kohal6";
     extract(parse_url($_ENV["DATABASE_URL"]));
     echo $_ENV["DATABASE_URL"];
+    echo 'pgsql:host='.$host.';dbname='.$dbname." ". $user." ". $pass;
     try{
         $dbh = new PDO('pgsql:host='.$host.';dbname='.$dbname, $user, $pass);
     }
