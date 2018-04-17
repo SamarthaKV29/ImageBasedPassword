@@ -20,7 +20,14 @@
 				}
 				?>
                 <div class="row">
-                    <div class="col">Menu</div>
+                    <div class="col-md-1">
+                        <nav>
+                            <ul class="navbar nav">
+                                <li><a href=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
+                            
+                            </ul>
+                        </nav>
+                    </div>
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel panel-heading">
@@ -40,7 +47,7 @@
                         </div>
                     
                     </div>
-                    <div class="col">
+                    <div class="col-md-2">
                         <div class="panel panel-primary">
                             <div class="panel panel-heading">
                             LOGIN
