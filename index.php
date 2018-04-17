@@ -23,10 +23,10 @@
                     <div class="col-md-2">Menu</div>
                     <div class="col-md-4">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel panel-heading">
                                 <h3>Welcome to IBP</h3>
                             </div>
-                            <div class="panel-content">
+                            <div class="panel panel-content">
                                 <p>We have utilized the state of the art technology to implment the various image based password methods.</p>
                                 <h4>Methods available:</h4>
                                 <ol>
