@@ -8,8 +8,8 @@
 <body>
 	<div class="container">
 		<div class="row">
-            <div class="col"></div>
-			<div class="col-md-12 col-lg-8 col-sm-8">
+            <div class="col-md-2"></div>
+			<div class="col-md-8">
 				<?php 
 				$loggedIn = null;
 
@@ -20,9 +20,9 @@
 				}
 				?>
                 <div class="row">
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>            
+                    <div class="col-md-2">Menu</div>
+                    <div class="col-md-4">Main content</div>
+                    <div class="col-md-2">Login</div>            
                 
                 
                 
@@ -44,7 +44,7 @@
 
 
 			</div>
-            <div class="col"></div>
+            <div class="col-md-2"></div>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
