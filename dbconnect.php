@@ -11,12 +11,13 @@
 
 
 function getDBC(){
-    $dbh = null;
-    $user="szkfkupaorgifd";
-    $password="6171a7ebf6524897ed492ac8c786242030f8997068db778a71954365002a7578";
-    $host="ec2-54-243-28-109.compute-1.amazonaws.com";
-    $dbname="d52j9hr7kohal6";
-
+    // $dbh = null;
+    // $user="szkfkupaorgifd";
+    // $password="6171a7ebf6524897ed492ac8c786242030f8997068db778a71954365002a7578";
+    // $host="ec2-54-243-28-109.compute-1.amazonaws.com";
+    // $dbname="d52j9hr7kohal6";
+    extract(parse_url($_ENV["DATABASE_URL"]));
+    echo $_ENV["DATABASE_URL"];
     try{
         $dbh = new PDO('pgsql:host='.$host.';dbname='.$dbname, $user, $pass);
     }
