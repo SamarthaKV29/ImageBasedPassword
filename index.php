@@ -20,7 +20,7 @@
 				}
 				?>
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-3">
                         <nav>
                             <ul class="navbar nav">
                                 <li><a href=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
@@ -47,25 +47,7 @@
                         </div>
                     
                     </div>
-                    <div class="col-md-2">
-                        <div class="panel panel-primary">
-                            <div class="panel panel-heading">
-                            LOGIN
-                            </div>
-                            <div class="panel panel-body">
-                                <form >
-                                    <div class="form-group">
-                                        <label>EmailID:</label>
-                                        <input class="form-control" name="userid" required type="email"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password:</label>
-                                        <input class="form-control" required name="pass" type="password"/>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>            
+                    <?php require("loginform.php"); ?>           
                 
                 
                 
