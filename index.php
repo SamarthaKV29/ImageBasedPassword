@@ -25,8 +25,8 @@
 
 <?php 
 
-echo "This browser is ".get_browser()
-
+echo "This browser is ".get_browser();
+require("dbconnect.php");
 ?>
 
 
