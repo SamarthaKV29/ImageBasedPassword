@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -9,7 +10,7 @@
 
 
 <div class="container">
-<div class="wrapper">
+<div class="wrapper ">
 
 
 <div class="row">
@@ -24,9 +25,13 @@
 
 
 <?php 
+$loggedIn = null;
 
-
-require("dbconnect.php");
+require_once("dbconnect.php");
+$dbh = getDBC();
+if(isset($dbh)){
+    echo " Connected to DB successfully";
+}
 ?>
 
 
