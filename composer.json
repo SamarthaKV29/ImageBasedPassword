@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": ">=5.0.0",
+        "php": ">=7.0.0",
         "silex/silex": "^2.0.4",
         "monolog/monolog": "^1.22",
         "twig/twig": "^1.0",

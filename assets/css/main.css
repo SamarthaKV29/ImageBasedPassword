@@ -1,0 +1,49 @@
+body *{
+	font-family: 'Inknut Antiqua', serif !important;
+}
+.list-group{
+	counter-reset: listing;
+	position: relative;
+}
+.wrapper{
+	position: relative;
+}
+.modal, #loadingmodal{
+	width: 100px;
+	display: block;
+	position: absolute;
+	margin: 0 auto;
+}
+
+.list-group-item::before{
+	counter-increment: listing;
+	content: counter(listing);
+	font-family: 'Times New Roman', Times, serif;
+	border-radius: 20%;
+	background-color: #AAA;
+	font-weight: bold;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: -4px;
+	top: 14px;
+	height: 20px;
+	width: 20px;
+	font-size: 10px;
+	padding: 2%;
+}
+.rounded-30{
+	border-radius: 30%;
+}
+.rounded-50{
+	border-radius: 50%;
+}
+
+.pimgs:hover{
+	cursor:pointer;
+	filter: hue-rotate(120deg) contrast(100%) drop-shadow(0px 0px 5px green);
+}
+.pimgs.selected{
+	filter: hue-rotate(-20deg) contrast(100%) drop-shadow(0px 0px 2px #ad0) blur(5px);
+}

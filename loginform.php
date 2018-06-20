@@ -1,50 +1,69 @@
-<html>
-<head>
-<script>
-$(document).ready = () =>{
-    console.log("Ready");
+
+<?php
+function loadImgs()
+{
+    $imgArr = null;
+    $imgloc = "\assets\imgs\lock1\\";
+    $handle = opendir(dirname("./") . $imgloc);
+    $path = dirname("./") . $imgloc;
+    $i = 1;
+    while ($file = readdir($handle)) {
+        if ($file != "." && $file != ".." && strstr($file, ".png") || strstr($file, ".jpg")) {
+            $imgArr[$i++] = "<img class='pimgs animated zoomIn img-fluid rounded-30 m-1' id='pic" . $i . "' src='" . $path . $file . "' />";
+        }
+    }
+    return $imgArr;
+    //
 }
 
-</script>
-</head>
-<body>
-
-<?php 
-
-echo '<div class="col-md-3">';
-if(!isset($loggedIn)){
+if (!isset($_SESSION["loggedIn"])) {
     echo '
-    <div class="panel panel-primary">
-            <div class="panel panel-heading">
-            LOGIN
-            </div>
-            <div class="panel panel-body">
-                <form >
-                    <div class="form-group">
-                        <label>EmailID:</label>
-                        <input class="form-control" name="userid" required type="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Password:</label>
-                        <input class="form-control" required name="pass" type="password"/>
-                    </div>
-                </form>
-            </div>
+    <div id="loginForm" class="card bg-warning">
+        <div class="card-header">
+        Login
         </div>
+        <div class="card card-body">
+            <form id="lgnform">
+                <div class="form-group">
+                    <label>EmailID:</label>
+                    <input class="form-control" id="femailID" name="useremail" required type="email"/>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input class="form-control" id="fpassw" required name="password" type="password"/>
+                </div>
+                <div id="pimgsholder" class="text-center" style="display: none">
+                ';
+    foreach (loadImgs() as $img) {
+        echo "" . $img;
+    }
+    echo '
+                </div>
+                <input type="hidden" name="imbpwd" id="imgpwd" required/>
+                <p id="ibp_sup1" class="animated fadeInUp bg-warning rounded p-1 m-2">Please select 5 images</p>
+                <p id="sup2" class="animated fadeInUp bg-warning rounded p-1 m-2">Please check the errors!</p>
+                <input class="btn btn-success" type="submit" />
+            </form>
+        </div>
+    </div>
+    <!--script>$("#loginForm").hide();</script-->
     ';
 
-}
-else{
-    echo '<div class="panel panel-primary">
-        <div class="panel panel-heading">
-            Welcome user.
-        </div>
-    </div>';
-}
+} else if (isset($_SESSION["loggedIn"]) && isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
 
-echo ' </div> ';
+    echo '<div id="loginForm" class="card bg-light">
+        <div class="card card-header">
+            Welcome
+        </div>
+        <div class="card-body">
+            User ' . $user->getName() . '
+        </div>
+        <div class="card-footer">
+        <a class="btn btn-danger" href="logout.php">Logout</a>
+        </div>
+    </div>
+    <script>$("#loginForm").show();</script>';
+}
 
 ?>
-</body>
-
-</html>
