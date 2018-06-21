@@ -1,24 +1,22 @@
 <?php
+require "dbconnect.php";
 
-if (isset($_SESSION["DBC"]) && isset($_POST["useremail"]) && isset($_POST["password"])) {
-    echo "<script>console.log('Checking...');</script>";
-    $res = pg_query($_SESSION["DBC"], "select name, emailid, password, imgpwd from users");
-    while ($r = pg_fetch_row($res)) {
-        if ($_POST["useremail"] == $r[1] && $_POST["password"] == $r[2]) {
-            $_SESSION["loggedIn"] = true;
-            $user = new User($r[0], $r[1], $r[2]);
-            $_SESSION["user"] = $user;
-            echo "<script>console.log('Welcome...');</script>";
-            break;
+$dbh = getDBC();
+$res = null;
+
+if ($dbh) {
+    if (isset($_POST["useremail"]) && isset($_POST["password"]) && isset($_POST["imgpwd"])) {
+        $res = pg_query($dbh, "select name, emailid, password, imgpwd from users");
+        while ($r = pg_fetch_row($res)) {
+            if (strcmp($_POST["useremail"], $r[1]) == 0 && strcmp($_POST["password"], $r[2]) == 0 && strcmp($_POST["imgpwd"], $r[3]) == 0) {
+                header('Content-Type: application/json');
+                echo json_encode(['name' => $r[0], 'emailid' => $r[1]]);
+                break;
+            } else {
+                echo "Failed.";
+            }
         }
     }
-
-    echo "
-<script>
-console.log('HERE');
-</script>
-
-
-";
-
+} else {
+    echo "Error connecting to Database";
 }

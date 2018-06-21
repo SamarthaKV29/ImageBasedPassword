@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!doctype html>
 <html>
 
@@ -37,17 +34,6 @@
 </head>
 
 <body class="bg-dark">
-<?php
-require "user.php";
-$_SESSION["loggedIn"] = null;
-
-if (!isset($_SESSION["DBC"])) {
-    require_once "dbconnect.php";
-    getDBC();
-    echo "<script>console.log('Connected to DB successfully " . $_SESSION["DBC"] . "');</script>";
-}
-
-?>
     <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
@@ -97,7 +83,50 @@ if (!isset($_SESSION["DBC"])) {
 
                 </div>
                 <div class="col m-1">
-                    <?php require "loginform.php";?>
+                    <div id="loginForm" class="card">
+                        <div class="card-header">
+                            Login
+                        </div>
+                        <div class="card-body">
+                            <form id="lgnform">
+                                <div class="form-group">
+                                    <label>EmailID:</label>
+                                    <input class="form-control" id="femailID" name="useremail" required type="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password:</label>
+                                    <input class="form-control" id="fpassw" required name="password" type="password"/>
+                                </div>
+                                <div class="form-group">
+                                    <div id="pimgsholder" class="text-center" style="display: none">
+                                        <?php
+require_once "loadIMGs.php";
+foreach (loadImgs() as $img) {
+    echo "" . $img;
+}
+?>
+                                    </div>
+                                    <input type="hidden" name="imbpwd" id="imgpwd" required/>
+                                </div>
+                                <div class="form-group">
+                                    <p id="ibp_sup1" class="animated fadeInUp bg-warning rounded p-1 m-2">Please select 5 images</p>
+                                    <p id="sup2" class="animated fadeInUp bg-danger rounded p-1 m-2">Please check the errors!</p>
+                                    <input class="btn btn-success" type="submit" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="loggedInDialog" class="card bg-light">
+                        <div class="card card-header">
+                            Welcome
+                        </div>
+                        <div class="card-body">
+                            User
+                        </div>
+                        <div class="card-footer">
+                        <a class="btn btn-danger" href="logout.php">Logout</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>

@@ -15,8 +15,9 @@ function getDBC()
         //echo "<script>console.log('" . pg_connection_string_from_database_url() . "');</script>";
         $dbh = pg_connect(pg_connection_string_from_database_url());
         //echo "<script>console.log('" . $dbh . "');</script>";
-        $_SESSION["DBC"] = $dbh;
+        return $dbh;
     } catch (Exception $e) {
         echo "Unable to connect to database. Please try again.";
+        return null;
     }
 }

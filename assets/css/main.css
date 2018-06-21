@@ -42,8 +42,8 @@ body *{
 
 .pimgs:hover{
 	cursor:pointer;
-	filter: hue-rotate(120deg) contrast(100%) drop-shadow(0px 0px 5px green);
 }
 .pimgs.selected{
-	filter: hue-rotate(-20deg) contrast(100%) drop-shadow(0px 0px 2px #ad0) blur(5px);
+	
+	filter: hue-rotate(-20deg) contrast(100%) drop-shadow(0px 0px 2px #ad0) blur(1px);
 }

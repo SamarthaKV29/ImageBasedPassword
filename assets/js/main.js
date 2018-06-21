@@ -1,6 +1,7 @@
 
 $(document).ready(() => {
     $("#loadingmodal").modal("show");
+    $("#loggedInDialog").hide();
     var passarr = [];
     $(".pimgs").click((e) => {
         var r = $(e.target).attr("id").substr(3);
@@ -12,7 +13,6 @@ $(document).ready(() => {
             else {
                 passarr = passarr.filter(x => x !== r);
             }
-
             //console.log(passarr.join("."));
         }
         else {
@@ -40,10 +40,24 @@ $(document).ready(() => {
         e.preventDefault();
         if (validateForm($(e.target))) {
             console.log("Post");
-            $.post("login.php", {
-                'useremail': $("#femailID").val(),
-                'password': $("#fpassw").val(),
-                'imgpwd': $("#imgpwd").val()
+            $.ajax({
+                url: "login.php",
+                method: "POST",
+                data: {
+                    'useremail': $("#femailID").val(),
+                    'password': $("#fpassw").val(),
+                    'imgpwd': $("#imgpwd").val()
+                },
+                success: (res) => {
+                    if (typeof (res) == 'object') {
+                        localStorage.setItem("loggedIn", true);
+                        localStorage.setItem("userDet", res);
+                    }
+                    else {
+                        localStorage.setItem("loggedIn", false);
+                        localStorage.removeItem("userDet");
+                    }
+                }
             });
         }
         else {
