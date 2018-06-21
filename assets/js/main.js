@@ -27,16 +27,11 @@ $(document).ready(() => {
             $("#ibp_sup1").addClass("bg-warning").removeClass("bg-success").html("Please select 5 images");
             $("#imgpwd").val("");
         }
-    }).one("load", () => {
-        setTimeout(() => {
-            $("#loadingmodal").modal("hide");
-            $("#pimgsholder").fadeIn("slow");
-        }, 10);
-    }).each(() => {
-        if (this.complete) {
-            $(this).load();
-        }
     });
+    setTimeout(() => {
+        $("#loadingmodal").modal("hide");
+        $("#pimgsholder").fadeIn("slow");
+    }, 500);
 
 
 
@@ -62,6 +57,7 @@ $(document).ready(() => {
                     else {
                         localStorage.setItem("loggedIn", false);
                         localStorage.removeItem("userDet");
+                        console.log("Login Failed");
                     }
                 }
             });
