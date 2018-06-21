@@ -27,16 +27,17 @@ $(document).ready(() => {
             $("#ibp_sup1").addClass("bg-warning").removeClass("bg-success").html("Please select 5 images");
             $("#imgpwd").val("");
         }
+    }).one("load", () => {
+        setTimeout(() => {
+            $("#loadingmodal").modal("hide");
+            $("#pimgsholder").fadeIn("slow");
+        }, 10);
+    }).each(() => {
+        if (this.complete) {
+            $(this).load();
+        }
     });
-    var pimgs = document.getElementsByClassName("pimgs");
-    for (i = 0; i < pimgs.length; i++) {
-        pimgs[i].addEventListener("load", () => {
-            setTimeout(() => {
-                $("#loadingmodal").modal("hide");
-                $("#pimgsholder").fadeIn("slow");
-            }, 10);
-        });
-    }
+
 
 
     $("#sup2").hide();
