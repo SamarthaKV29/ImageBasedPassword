@@ -5,7 +5,6 @@ function loadImgs()
     $imgloc = "/assets/imgs/lock1/";
     $handle = opendir(dirname("./") . $imgloc);
     $path = dirname("./") . $imgloc;
-    echo "<script>console.log('" . $path . "')</script>";
     $i = 1;
     while ($file = readdir($handle)) {
         if ($file != "." && $file != ".." && strstr($file, ".png") || strstr($file, ".jpg")) {

@@ -44,6 +44,10 @@ body *{
 	cursor:pointer;
 }
 .pimgs.selected{
-	
-	filter: hue-rotate(-20deg) contrast(100%) drop-shadow(0px 0px 2px #ad0) blur(1px);
+
+	filter: hue-rotate(-20deg) contrast(100%) drop-shadow(0px 0px 2px #ad0) blur(4px);
+}
+
+.userFullName{
+	text-transform: capitalize;
 }

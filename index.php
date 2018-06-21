@@ -100,7 +100,7 @@
                                 <div class="form-group">
                                     <div id="pimgsholder" class="text-center" style="display: none">
                                         <?php
-require_once "loadIMGs.php";
+require "loadIMGs.php";
 foreach (loadImgs() as $img) {
     echo "" . $img;
 }
@@ -110,21 +110,26 @@ foreach (loadImgs() as $img) {
                                 </div>
                                 <div class="form-group">
                                     <p id="ibp_sup1" class="animated fadeInUp bg-warning rounded p-1 m-2">Please select 5 images</p>
-                                    <p id="sup2" class="animated fadeInUp bg-danger rounded p-1 m-2">Please check the errors!</p>
+                                    <p id="sup2" class="animated fadeInUp bg-danger rounded p-1 m-2"></p>
                                     <input class="btn btn-success" type="submit" />
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div id="loggedInDialog" class="card bg-light">
-                        <div class="card card-header">
+                        <div class="card-header">
                             Welcome
                         </div>
                         <div class="card-body">
                             User
+                            <span class="userFullName">
+                                <script >
+                                    showUName();
+                                </script>
+                            </span>
                         </div>
                         <div class="card-footer">
-                        <a class="btn btn-danger" href="logout.php">Logout</a>
+                        <button class="btn btn-danger" id="logoutbtn">Logout</button>
                         </div>
                     </div>
                 </div>
