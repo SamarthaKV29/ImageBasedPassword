@@ -8,9 +8,9 @@ This project pertains to using the Captcha as a graphical password. We have diff
 - Login basic image password.
 
 This is a basic type of Image based passwords which is derived from CaRP which is a combination of both an Image and a password. Nowadays, this is becoming obsolete. Here we can see that the user selects a specified number of images as a password, which will be used while logging in.
-
+<div style="text-align: center ">
 <img src="https://github.com/SamarthaKV29/ImageBasedPassword/blob/master/assets/imgs/BasicIMGpwd.png" />
-
+</div>
 - Circle selection encryption.
 
 - Grid Based Selection.
