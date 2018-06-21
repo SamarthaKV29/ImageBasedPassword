@@ -24,7 +24,7 @@ $(document).ready(() => {
 });
 
 pimgsHandle = (e) => {
-    var r = $(e.target).attr("id").substr(3);
+    var r = $(e.target).attr("id").substr(3, 3);
     if (passarr.length < 5) {
         $(e.target).toggleClass('selected');
 

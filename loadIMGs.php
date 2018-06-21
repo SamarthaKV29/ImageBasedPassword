@@ -8,7 +8,7 @@ function loadImgs()
     $i = 1;
     while ($file = readdir($handle)) {
         if ($file != "." && $file != ".." && strstr($file, ".png") || strstr($file, ".jpg")) {
-            $imgArr[$i++] = "<img class='pimgs animated zoomIn img-fluid rounded-30 m-1' id='pic" . $i . "' src='" . $path . $file . "' />";
+            $imgArr[$i++] = "<img class='pimgs animated zoomIn img-fluid rounded-30 m-1' id='pic" . $file . "' src='" . $path . $file . "' />";
         }
     }
     return $imgArr;

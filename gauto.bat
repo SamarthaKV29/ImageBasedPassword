@@ -1,5 +1,6 @@
 git status
 git add .
-git commit -m "UPD"
+set /p commitMsg=Whats the commit message?
+git commit -m %commitMsg%
 git push origin master
 
