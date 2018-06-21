@@ -1,5 +1,5 @@
 body *{
-	font-family: 'Inknut Antiqua', serif !important;
+	font-family: 'Inknut Antiqua', serif;
 }
 .list-group{
 	counter-reset: listing;
@@ -15,18 +15,25 @@ body *{
 	margin: 0 auto;
 }
 
+.loadSpinner{
+	position: absolute;
+	padding: 10%;
+	
+}
+
 .list-group-item::before{
 	counter-increment: listing;
 	content: counter(listing);
 	font-family: 'Times New Roman', Times, serif;
 	border-radius: 20%;
-	background-color: #AAA;
+	color: black;
+	background-color: orange;
 	font-weight: bold;
 	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	left: -4px;
+	left: -10px;
 	top: 14px;
 	height: 20px;
 	width: 20px;
@@ -50,4 +57,14 @@ body *{
 
 .userFullName{
 	text-transform: capitalize;
+}
+.ddd{
+	border: thin solid red;
+	padding: 1px;
+}
+
+.bg-grad-blue{
+	background: #2193b0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
