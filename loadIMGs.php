@@ -2,7 +2,7 @@
 function loadImgs()
 {
     $imgArr = null;
-    $imgloc = "\assets\imgs\lock1\\";
+    $imgloc = "\\assets\\imgs\lock1\\";
     $handle = opendir(dirname("./") . $imgloc);
     $path = dirname("./") . $imgloc;
     $i = 1;

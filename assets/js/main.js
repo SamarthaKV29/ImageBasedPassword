@@ -28,6 +28,7 @@ $(document).ready(() => {
             $("#imgpwd").val("");
         }
     }).on("load", () => {
+        console.log("Loaded IMGs.");
         setTimeout(() => {
             $("#loadingmodal").modal("hide");
             $("#pimgsholder").fadeIn("slow");
