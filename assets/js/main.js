@@ -4,7 +4,7 @@ $(document).ready(() => {
     $("#loadingmodal").modal("show");
     $("#loggedInDialog").hide();
     $("#sup2").hide();
-    $("#frepassholder").hide();
+    $("#frepassholder, #fnameholder").hide();
 
     if (sessionStorage.getItem("loggedIn")) {
         $("#loginForm").hide();
@@ -32,14 +32,14 @@ loginPrep = (e) => {
     formFunction = "log";
     $("#regForm").remove();
     $("#register").text("New User").click(regPrep);
-    $("#frepassholder").hide();
+    $("#frepassholder, #fnameholder").hide();
     $("#frepass").attr("required", false);
     $("#loginForm").show();
 };
 
 regPrep = (e) => {
     $(e.target).text("Login").click(loginPrep);
-    $("#frepassholder").show();
+    $("#frepassholder, #fnameholder").show();
     formFunction = "reg";
     e.preventDefault();
     if (!$("#regForm").length) {
@@ -63,7 +63,7 @@ regPrep = (e) => {
         $("#regForm").show();
     }
     $("#loginForm").hide();
-    $("#frepass").attr("required", true);
+    $("#frepass, #fname").attr("required", true);
 };
 
 
@@ -126,17 +126,23 @@ logout = () => {
     $("#pimgsholder").fadeIn();
 }
 submitForm = (e) => {
+    if (formFunction == "log") {
+        currForm = "#lgnform";
+    }
+    else {
+        currForm = "#regform";
+    }
     e.preventDefault();
     if (formFunction == 'log') {
         if (validateForm($(e.target))) {
-            $("#sup2, #ibp_sup1 ").hide();
+            $(currForm + " #sup2," + currForm + " #ibp_sup1 ").hide();
             $.ajax({
                 url: "login.php",
                 method: "POST",
                 data: {
-                    'useremail': $("#femailID").val(),
-                    'password': $("#fpassw").val(),
-                    'imgpwd': $("#imgpwd").val()
+                    'useremail': $(currForm + " #femailID").val(),
+                    'password': $(currForm + " #fpassw").val(),
+                    'imgpwd': $(currForm + " #imgpwd").val()
                 },
                 success: (res) => {
                     let errcode = RegExp(/[E][0-9]{3}/);
@@ -144,8 +150,8 @@ submitForm = (e) => {
                         login(JSON.stringify({ 'name': res.loginStatus }));
                     else {
                         logout();
-                        $("#sup2").show();
-                        $("#sup2").text("Login Failed, please check again!");
+                        $(currForm + " #sup2").show();
+                        $(currForm + " #sup2").text("Login Failed, please check again!");
                     }
 
                 },
@@ -156,17 +162,41 @@ submitForm = (e) => {
 
         }
         else {
-            $("#sup2").html("Please check the errors!").show();
+            $(currForm + " #sup2").html("Please check the errors!").show();
         }
     }
     else {
         if (validateForm('reg', $(e.target))) {
-            $("#sup2, #ibp_sup1 ").hide();
-            console.log("Success");
+            $(currForm + " #sup2," + currForm + " #ibp_sup1 ").hide();
+            $.ajax({
+                url: "register.php",
+                method: "POST",
+                data: {
+                    'name': $(currForm + " #fname").val(),
+                    'useremail': $(currForm + " #femailID").val(),
+                    'password': $(currForm + " #fpassw").val(),
+                    'imgpwd': $(currForm + " #imgpwd").val()
+                },
+                success: (res) => {
+                    let errcode = RegExp(/[E][0-9]{3}/);
+                    if (!errcode.test(res.regStatus)) {
+                        $(currForm + " #sup2").addClass("bg-success").removeClass("bg-danger").text("Registered Successfully!");
+                        $(currForm + " #sup2").show();
+                    }
+                    else {
+                        $(currForm + " #sup2").removeClass("bg-success").addClass("bg-danger").text("Registration unsuccessful, please check again!");
+                        $(currForm + " #sup2").show();
+                    }
+
+                },
+                error: (j, s, err) => {
+                    console.log("Failed " + j + s + err);
+                }
+            });
         }
         else {
-            $("#sup2").html("Please check the errors!").show();
-            console.log("Fai");
+            $(currForm + " #sup2").html("Please check the errors!").show();
+            console.log("Fail");
         }
     }
 
@@ -174,9 +204,13 @@ submitForm = (e) => {
 
 
 validateForm = (typ = "log", form) => {
-
-    var formID = "#" + form.attr('id');
-
+    if (formFunction == "log") {
+        formID = "#lgnform";
+    }
+    else {
+        formID = "#regform";
+    }
+    let fname = $(formID + " #fname").val();
     let feid = $(formID + " #femailID").val();
     let fpass = $(formID + " #fpassw").val();
     let fimpw = $(formID + " #imgpwd").val();
@@ -188,16 +222,23 @@ validateForm = (typ = "log", form) => {
     var passExp = RegExp(/[a-zA-Z0-9_\.\+\-\=\&*$#^&]{6,25}|[a-zA-Z0-9]{6,25}/);
     if (passExp.test(fpass)) {
         if (typ == "reg") {
-
+            var fnamExp = RegExp(/[\w \w]{2,25}/);
+            if (!fnamExp.test(fname)) {
+                console.log("NAME ERR");
+                return false;
+            }
             if (fpass != frepass) {
+                console.log("2ndPass ERR");
                 return false;
             }
         }
     }
     else {
+        console.log("passw ERR");
         return false;
     }
     if (!(fimpw.split(".").length == 5)) {
+        console.log("IBPWd ERR");
         return false;
     }
     passarr = [];

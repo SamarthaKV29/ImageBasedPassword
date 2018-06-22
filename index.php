@@ -94,6 +94,10 @@
                         </div>
                         <div class="card-body">
                             <form id="lgnform">
+                                <div id="fnameholder" class="form-group">
+                                    <label>Name:</label>
+                                    <input class="form-control" id="fname" name="username"/>
+                                </div>
                                 <div class="form-group">
                                     <label>EmailID:</label>
                                     <input class="form-control" id="femailID" name="useremail" required type="email"/>
