@@ -59,7 +59,7 @@
 
         <div class="wrapper">
 
-            <div id="loadingmodal" class="modal p-1" role="dialog">
+            <div id="loadingmodal" class="modal p-1" role="dialog" data-backdrop="static">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content bg-dark">
                         <div class="text-center font-weight-bold p-1">
@@ -79,9 +79,9 @@
                             <p>We have utilized the state of the art technology to implment the various image based password methods.</p>
                             <h4>Methods available:</h4>
                             <div id="loginTypes" class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action list-group-item-info active">Basic Login</a>
-                                <a href="#" class="list-group-item list-group-item-info list-group-item-action">Circle Selection</a>
-                                <a href="#" class="list-group-item list-group-item-info list-group-item-action">Grid based Selection</a>
+                                <a href="#loginForm" class="list-group-item list-group-item-action list-group-item-info active">Basic Login</a>
+                                <a href="#" class="list-group-item list-group-item-info list-group-item-action" title="Please login to view">Circle Selection</a>
+                                <a href="#" class="list-group-item list-group-item-info list-group-item-action" title="Please login to view">Grid based Selection</a>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                                     <label >Re Enter Password:</label>
                                     <input class="form-control" id="frepass" name="passwordmatch" type="password"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <div id="pimgsholder" class="text-center" style="display: none">
                                         <?php
 require "loadIMGs.php";
