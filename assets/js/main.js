@@ -157,7 +157,7 @@ login = (userDet) => {
     sessionStorage.setItem("userDet", userDet);
     $("#loginForm").hide();
     $("#loggedInDialog").show();
-    $("#loginTypes").children().;
+    //$("#loginTypes").children();
     showUName();
 }
 logout = () => {
