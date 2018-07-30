@@ -139,9 +139,9 @@ foreach (loadImgs() as $img) {
                         <div class="card-body">
                             User
                             <span class="userFullName">
-                                <script >
+                                <!--script >
                                     showUName();
-                                </script>
+                                </script-->
                             </span>
                         </div>
                         <div class="card-footer">
